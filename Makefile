@@ -16,6 +16,7 @@ $(name): $(objs)
 	cp $@ src/targets/iso/boot/kernel.bin
 	grub-mkrescue -o $(iso) src/targets/iso
 	@echo "ISO image: kernel.iso"
+	qemu-system-i386 -cdrom $(iso)
 
 
 src/impl/%.o: src/impl/%.s Makefile
